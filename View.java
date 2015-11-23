@@ -8,14 +8,12 @@ public class View extends JPanel
 
     public View()
     {
+        // Game current_game = new Game();
         window = new JPanel();
         setPreferredSize(new Dimension(800, 800));
         setLayout(new BorderLayout());
         add(window, BorderLayout.CENTER);
-
-
-        start_button = new JButton("Start");
-        window.add(start_button);
+        // ArrayList<> gui_array = current_game.get_gui_elements();
     }
 
 }
