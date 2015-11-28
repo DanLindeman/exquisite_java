@@ -1,31 +1,49 @@
 import javax.swing.*;
 import java.awt.*;
 import java.util.concurrent.ThreadLocalRandom;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class ExquisiteGameRunner
 {
-    private int good_int, bad_int;
-
+    private Game1 game1;
     public ExquisiteGameRunner()
     {
-        this.good_int = ThreadLocalRandom.current().nextInt(1, 100);
-        this.bad_int = ThreadLocalRandom.current().nextInt(1, 100);
+
     }
 
     public static void main(String[] args)
     {
-
-        // load games from some directory
-        // ArrayList<Game> games = load_all_games();
-        // for (Game current_game : games)
-        // View view = new View();
-        Game game1 = new Game1();
+        int good_int = Integer.parseInt(args[0]);
+        int bad_int = Integer.parseInt(args[1]);
         JFrame frame = new JFrame("Exquisite Game");
+        Game1 game1 = new Game1(good_int, bad_int);
+
+        ExquisiteGameRunner runner = new ExquisiteGameRunner();
         frame.getContentPane().add(game1.get_view());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
+        runner.run(game1);
+
+        
     }
+
+    private void run(Game1 game1)
+    {
+        while(!game1.is_finished())
+        {
+            game1.run();
+            sleep(1)
+        }
+
+    }
+
+
+    // private nextGame(JPanel current, JPanel next)
+    // {
+
+    // }
 
     // public ArrayList<Game> load_all_games()
     // {
