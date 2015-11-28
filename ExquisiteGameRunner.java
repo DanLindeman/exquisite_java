@@ -6,7 +6,6 @@ import java.awt.event.ActionListener;
 
 public class ExquisiteGameRunner
 {
-    private Game1 game1;
     public ExquisiteGameRunner()
     {
 
@@ -24,19 +23,8 @@ public class ExquisiteGameRunner
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
-        runner.run(game1);
 
         
-    }
-
-    private void run(Game1 game1)
-    {
-        while(!game1.is_finished())
-        {
-            game1.run();
-            sleep(1)
-        }
-
     }
 
 
