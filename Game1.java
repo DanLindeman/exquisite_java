@@ -7,7 +7,8 @@ public class Game1 implements ExquisiteInterface
 {
     private JPanel view, top, bottom;
     private int good_big, bad_big;
-    private JButton ok_button, done;
+    private JButton ok_button;
+    public JButton done;
     private JLabel bad_label, good_label;
     private boolean finished = false;
 
@@ -41,7 +42,7 @@ public class Game1 implements ExquisiteInterface
         bottom.add(bad_label);
         done = new JButton("Done");
         bottom.add(done);
-        done.addActionListener(handler);
+        // done.addActionListener(handler);
     }
 
     public void run()
