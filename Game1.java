@@ -13,10 +13,8 @@ public class Game1 implements ExquisiteInterface
     private boolean finished = false;
 
 
-    public Game1(int good_big, int bad_big)
+    public Game1()
     {
-        this.good_big = good_big;
-        this.bad_big = bad_big;
         create_view();
     }
 
@@ -42,15 +40,18 @@ public class Game1 implements ExquisiteInterface
         bottom.add(bad_label);
         done = new JButton("Done");
         bottom.add(done);
-        // done.addActionListener(handler);
+        done.setEnabled(false);
     }
 
-    public void run()
+    public void start(int good_big, int bad_big)
     {
-        System.out.println("Running Game 1");
+        this.good_big = good_big;
+        this.bad_big = bad_big;
+        good_label.setText("" + good_big);
+        bad_label.setText("" + bad_big);
     }
 
-    public JPanel get_view()
+    public JPanel get_panel()
     {
         return view;
     }
@@ -65,12 +66,6 @@ public class Game1 implements ExquisiteInterface
         return bad_big;
     }
 
-    private void clear_board()
-    {
-        view.removeAll();
-        view.revalidate();
-        view.repaint();
-    }
 
     public boolean is_finished()
     {
@@ -89,15 +84,8 @@ public class Game1 implements ExquisiteInterface
             if (event.getSource() == ok_button)
             {
                 System.out.println("OK button pressed!");
-                System.out.println(good_big + 1);
-                System.out.println(is_finished());
-            }
-            if (event.getSource() == done)
-            {
-                set_finished();
-                System.out.println("Done button pressed!");
-                System.out.println(bad_big + 1);
-                System.out.println(is_finished());
+                done.setEnabled(true);
+            
             }
         }
     }

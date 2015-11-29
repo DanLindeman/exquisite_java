@@ -10,43 +10,42 @@ public class ExquisiteGameRunner
     JPanel parentPanel = new JPanel();
     JPanel game1Panel = new JPanel();
     JPanel game2Panel = new JPanel();
+    JPanel game3Panel = new JPanel();
     CardLayout cardlayout = new CardLayout();
-
-    //Remove this after figuring out two panels
-    JButton go_to_first = new JButton("Go to First");
-    JButton go_to_second = new JButton("Go to Second");
+    private int good_big, bad_big;
+    private Game1 game1;
+    private GuessingGame guessinggame;
 
     public ExquisiteGameRunner(int good_int, int bad_int)
     {
         parentPanel.setLayout(cardlayout);
 
-        Game1 game1 = new Game1(good_int, bad_int);
+        game1 = new Game1();
+        game1Panel.add(game1.get_panel());
 
-        game1Panel.add(game1.get_view());
-        game1Panel.add(go_to_second);
+        guessinggame = new GuessingGame();
+        game2Panel.add(guessinggame.get_panel());
+
+        //dragongame = new DragonGame();
+        //game3Panel.add(dragongame.get_panel());
+        
 
         parentPanel.add(game1Panel, "1");
-
-        //Remove after figuring out multipanel
-
-        game2Panel.add(go_to_first);
         parentPanel.add(game2Panel, "2");
-        // frame.getContentPane().add(game1.get_view());
+        parentPanel.add(game3Panel, "3");
+
+
+        game1.start(good_int, bad_int);
+        
+
 
         game1.done.addActionListener(new ActionListener(){
             @Override
-            public void actionPerformed(ActionEvent arg0) {
+            public void actionPerformed(ActionEvent arg0) {    
+                guessinggame.start(game1.get_good_integer(), game1.get_bad_integer());
                 cardlayout.show(parentPanel, "2");
             }
         });
-        
-        go_to_first.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent arg0) {
-                cardlayout.show(parentPanel, "1");
-            }
-        });
-
 
         frame.add(parentPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

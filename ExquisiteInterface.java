@@ -3,9 +3,9 @@ import java.awt.*;
 
 public interface ExquisiteInterface
 {
-    JPanel get_view();
+    JPanel get_panel();
     Integer get_good_integer();
     Integer get_bad_integer();
-    boolean is_finished();
+    public void start(int good_big, int bad_big);
 
 }
