@@ -1,17 +1,15 @@
 import javax.swing.*;
 
-public class GuessingGame implements ExquisiteInterface
+public class CthuluBattle implements ExquisiteInterface
 {
     private int good_big, bad_big;
-    private GuessingGamePanel panel;
-    private GuessingGameModel model;
+    private CthuluBattlePanel panel;
+    private CthuluBattleModel model;
 
-    public JButton guessing_game_next_game;
-
-    public GuessingGame()
+    public CthuluBattle()
     {
-        model = new GuessingGameModel();
-        panel = new GuessingGamePanel(model);
+        model = new CthuluBattleModel();
+        panel = new CthuluBattlePanel(model);
     }
 
     public JPanel get_panel()

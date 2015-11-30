@@ -53,8 +53,6 @@ public class GuessingGamePanel extends JPanel
             outputLabel.setText(" " + result);
             Boolean winner = result.contains("win");
             Boolean loser = result.contains("lose");
-            System.out.println(winner);
-            System.out.println(loser);
             if (winner == true)
             {
                 guess.setEnabled(false);

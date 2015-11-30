@@ -26,8 +26,6 @@ public class GuessingGameModel
         {
             good_big = rand.nextInt(100) + 1;
             bad_big = rand.nextInt(good_big) + 1;
-            System.out.println(good_big);
-            System.out.println(bad_big);
             return "You lose, no more guesses. Click Next Game!";
         }
         else if (guess < secretNum)

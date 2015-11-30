@@ -15,14 +15,14 @@ public class Game1 implements ExquisiteInterface
 
     public Game1()
     {
-        create_view();
+        // create_view();
     }
 
     private void create_view()
     {
         view = new JPanel();
-        view.setPreferredSize(new Dimension(800, 800));
-        view.setLayout(new BorderLayout());
+        // view.setPreferredSize(new Dimension(800, 800));
+        // view.setLayout(new BorderLayout());
         top = new JPanel();
         bottom = new JPanel();
         view.add(top, BorderLayout.CENTER);
@@ -49,6 +49,7 @@ public class Game1 implements ExquisiteInterface
         this.bad_big = bad_big;
         good_label.setText("" + good_big);
         bad_label.setText("" + bad_big);
+        create_view();
     }
 
     public JPanel get_panel()
