@@ -3,11 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package fireslayer;
+// package fireslayer;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
-
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
 /**
  *
  * @author Ryan Solnik
@@ -16,29 +18,33 @@ public class DragonGame implements ExquisiteInterface {
 
     int goodNum, badNum;
     forestFire panel;
+    private ImageIcon knight, forest, dagron, fire;
 
     public DragonGame() {
         panel = new forestFire();
+        knight = new ImageIcon("shovelKnight.jpg");
+        forest = new ImageIcon("forest.jpg");
+        dagron = new ImageIcon("dagron.jpg");
+        fire = new ImageIcon("fire.jpg");
     }
 
     public void start(int good_big, int bad_big) {
 
-        System.out.println(good_big);
-        System.out.println(bad_big);
-
         goodNum = good_big;
         badNum = bad_big;
 
-        if (badNum > 10) {
+        if (badNum > 10) 
+        {
             badNum = (panel.size * panel.size) / 2;
-        } else if (badNum < 10) {
+        } else if (badNum < 10) 
+        {
             badNum = (panel.size * panel.size) / 4;
         }
 
         setFires(badNum, panel.tiles);
     }
 
-    public JPanel get_Panel() {
+    public JPanel get_panel() {
         return panel;
     }
 

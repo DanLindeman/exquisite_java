@@ -3,7 +3,7 @@ import javax.swing.*;
 public class CthuluBattle implements ExquisiteInterface
 {
     private int good_big, bad_big;
-    private CthuluBattlePanel panel;
+    public CthuluBattlePanel panel;
     private CthuluBattleModel model;
 
     public CthuluBattle()

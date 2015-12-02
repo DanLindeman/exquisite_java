@@ -1,4 +1,4 @@
-package fireslayer;
+// package fireslayer;
 
 import javax.swing.*;
 import java.awt.*;
@@ -20,7 +20,7 @@ public class forestFire extends JPanel {
 
     public forestFire() {
 
-        size = 10;
+        size = 7;
 
         this.row = size;
         this.col = size;
@@ -42,10 +42,10 @@ public class forestFire extends JPanel {
         controls = new JButton[2];
 
         //initializes icons
-        knight = new ImageIcon("src/demo/shovelKnight.jpg");
-        forest = new ImageIcon("src/demo/forest.jpg");
-        dagron = new ImageIcon("src/demo/dagron.jpg");
-        fire = new ImageIcon("src/demo/fire.jpg");
+        knight = new ImageIcon("shovelKnight.jpg");
+        forest = new ImageIcon("forest.jpg");
+        dagron = new ImageIcon("dagron.jpg");
+        fire = new ImageIcon("fire.jpg");
 
         //populate the buttons in the tiles
         for (int i = 0; i < tiles.length; i++) {

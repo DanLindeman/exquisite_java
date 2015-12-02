@@ -1,4 +1,4 @@
-package fireslayer;
+// package fireslayer;
 
 // file: gameMain.java
 
@@ -7,7 +7,8 @@ import javax.swing.*;
 
 class gameMain {
 	
-	public static void main (String[] args) {
+	public static void main (String[] args) 
+      {
 		
             //input of two integers from game runner.
             int goodNum = 100;

@@ -17,9 +17,10 @@ public class ExquisiteGameRunner
 
     private int good_big, bad_big;
 
-    private Game1 game1;
+    // private Game1 game1;
     private CthuluBattle cthulubattle;
     private GuessingGame guessinggame;
+    private DragonGame dragongame;
 
     public ExquisiteGameRunner(int good_int, int bad_int)
     {
@@ -34,8 +35,8 @@ public class ExquisiteGameRunner
         guessinggame = new GuessingGame();
         game2Panel.add(guessinggame.get_panel());
 
-        //dragongame = new DragonGame();
-        //game3Panel.add(dragongame.get_panel());
+        dragongame = new DragonGame();
+        game3Panel.add(dragongame.get_panel());
 
 
         parentPanel.add(game1Panel, "1");
@@ -51,12 +52,13 @@ public class ExquisiteGameRunner
         
         
 
-
-        guessinggame.addActionListener(new ActionListener(){
+        // JPanel guessinggamepanel = guessinggame.get_panel();
+        // JButton guessinggamebutton = guessinggamepanel.get_next_button();
+        guessinggame.panel.guessing_game_next_game.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent arg0) {    
-                guessinggame.start(guessinggame.get_good_integer(), guessinggame.get_bad_integer());
-                cardlayout.show(parentPanel, "1");
+                dragongame.start(guessinggame.get_good_integer(), guessinggame.get_bad_integer());
+                cardlayout.show(parentPanel, "3");
             }
         });
 

@@ -22,13 +22,13 @@ public class CthuluBattlePanel extends JPanel
         cthulu_battle_next_game = new JButton("Next Game");
         cthulu_battle_next_game.setEnabled(false);
 
-        // ImageIcon cthulu_icon = new ImageIcon("cthulu.jpg"); 
-        // cthulu_label = new JLabel();
-        // cthulu_label.setIcon(cthulu_icon);
+        ImageIcon cthulu_icon = new ImageIcon("cthulu.jpg"); 
+        cthulu_label = new JButton();
+        cthulu_label.setIcon(cthulu_icon);
         // cthulu_label = new JLabel("ASDLKJSAD");
 
-        // cthulu_field = new JPanel();
-        // cthulu_field.add(cthulu_label);
+        cthulu_field = new JPanel();
+        cthulu_field.add(cthulu_label);
 
         actions_field = new JPanel();
         actions_field.add(punch);
@@ -36,8 +36,8 @@ public class CthuluBattlePanel extends JPanel
         actions_field.add(cower);
         actions_field.add(cthulu_battle_next_game);
 
-        // setLayout(new BorderLayout());
-        // add(cthulu_field, BorderLayout.CENTER);
+        setLayout(new BorderLayout());
+        add(cthulu_field, BorderLayout.CENTER);
         add(actions_field);
         model = aModel;
 

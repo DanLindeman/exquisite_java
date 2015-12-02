@@ -7,7 +7,7 @@ public class GuessingGamePanel extends JPanel
     private JButton guess;
     private JLabel inputLabel, outputLabel;
     private JTextField input;
-    private JPanel north, south;
+    public JPanel north, south;
     private GuessingGameModel model;
 
     public JButton guessing_game_next_game;
@@ -66,6 +66,11 @@ public class GuessingGamePanel extends JPanel
             input.grabFocus();
             input.selectAll();
         }
+    }
+
+    public JButton get_next_button()
+    {
+        return guessing_game_next_game;
     }
 }
 

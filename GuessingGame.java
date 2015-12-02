@@ -3,10 +3,8 @@ import javax.swing.*;
 public class GuessingGame implements ExquisiteInterface
 {
     private int good_big, bad_big;
-    private GuessingGamePanel panel;
+    public GuessingGamePanel panel;
     private GuessingGameModel model;
-
-    public JButton guessing_game_next_game;
 
     public GuessingGame()
     {
