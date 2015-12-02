@@ -17,7 +17,7 @@ import java.awt.event.*;
 public class DragonGame implements ExquisiteInterface {
 
     int goodNum, badNum;
-    forestFire panel;
+    public forestFire panel;
     private ImageIcon knight, forest, dagron, fire;
 
     public DragonGame() {
@@ -30,6 +30,7 @@ public class DragonGame implements ExquisiteInterface {
 
     public void start(int good_big, int bad_big) {
 
+        JOptionPane.showMessageDialog(null, "Slay the Dragon, don't get burned!");
         goodNum = good_big;
         badNum = bad_big;
 

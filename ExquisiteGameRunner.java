@@ -17,7 +17,6 @@ public class ExquisiteGameRunner
 
     private int good_big, bad_big;
 
-    // private Game1 game1;
     private CthuluBattle cthulubattle;
     private GuessingGame guessinggame;
     private DragonGame dragongame;
@@ -26,39 +25,46 @@ public class ExquisiteGameRunner
     {
         parentPanel.setLayout(cardlayout);
 
-        // game1 = new Game1();
-        // game1Panel.add(game1.get_panel());
+        guessinggame = new GuessingGame();
+        game1Panel.add(guessinggame.get_panel());
 
         cthulubattle = new CthuluBattle();
-        game1Panel.add(cthulubattle.get_panel());
-
-        guessinggame = new GuessingGame();
-        game2Panel.add(guessinggame.get_panel());
+        game2Panel.add(cthulubattle.get_panel());
 
         dragongame = new DragonGame();
         game3Panel.add(dragongame.get_panel());
-
 
         parentPanel.add(game1Panel, "1");
         parentPanel.add(game2Panel, "2");
         parentPanel.add(game3Panel, "3");
 
-        // cthulubattle.start(good_int, bad_int);
         guessinggame.start(good_int, bad_int);
-        cardlayout.show(parentPanel, "2");
-        // cthulubattle.start(good_int, bad_int);
+        cardlayout.show(parentPanel, "1");
 
-
-        
-        
-
-        // JPanel guessinggamepanel = guessinggame.get_panel();
-        // JButton guessinggamebutton = guessinggamepanel.get_next_button();
         guessinggame.panel.guessing_game_next_game.addActionListener(new ActionListener(){
             @Override
-            public void actionPerformed(ActionEvent arg0) {    
-                dragongame.start(guessinggame.get_good_integer(), guessinggame.get_bad_integer());
+            public void actionPerformed(ActionEvent arg0) {
+                cthulubattle.start(guessinggame.get_good_integer(), guessinggame.get_bad_integer());
+                cardlayout.show(parentPanel, "2");
+            }
+        });
+
+        cthulubattle.panel.cthulu_battle_next_game.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent arg0) {
+                dragongame.start(cthulubattle.get_good_integer(), cthulubattle.get_bad_integer());
                 cardlayout.show(parentPanel, "3");
+            }
+        });
+
+        dragongame.panel.next_game.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent arg0) {
+                System.out.println(dragongame.get_good_integer());
+                System.out.println(dragongame.get_bad_integer());
+
+                guessinggame.start(dragongame.get_good_integer(), dragongame.get_bad_integer());
+                cardlayout.show(parentPanel, "1");
             }
         });
 

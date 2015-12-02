@@ -8,11 +8,12 @@ public class forestFire extends JPanel {
 
     int row, col, size;
     int fires = 0;
-    int goodNum = 0;
-    int badNum = 0;
+    public int goodNum = 0;
+    public int badNum = 0;
     
     JButton[][] tiles;
-    JButton[] controls;
+    JButton reset;
+    public JButton next_game;
     JButton KnightStart, DragonStart;
     private JPanel center, buttons;
 
@@ -39,7 +40,6 @@ public class forestFire extends JPanel {
 
         //creates the tiles array
         tiles = new JButton[row][col];
-        controls = new JButton[2];
 
         //initializes icons
         knight = new ImageIcon("shovelKnight.jpg");
@@ -59,8 +59,6 @@ public class forestFire extends JPanel {
 
         }
 
-        //set fires
-        //setFires(fires);
         //Knight start
         KnightStart = tiles[row / 2][0];
         KnightStart.setIcon(knight);
@@ -72,17 +70,12 @@ public class forestFire extends JPanel {
         //enables new steps
         enableSpaces(tiles, knight);
 
-        //creates button array        
-        controls[0] = new JButton("Reset");
-        controls[1] = new JButton("End Game");
-
-        //add controls to bottom of screen
-        for (JButton J : controls) {
-            J.setPreferredSize(new Dimension(25, 25));
-            buttons.add(J);
-            J.addActionListener(listener);
-        }
-        controls[1].setEnabled(false);
+        //add player controls
+        reset = new JButton("Reset");
+        next_game = new JButton("Next Game");
+        buttons.add(reset);
+        buttons.add(next_game);
+        next_game.setEnabled(false);
     }
 
     //turns squares to fire based on input
@@ -162,7 +155,7 @@ public class forestFire extends JPanel {
         public void actionPerformed(ActionEvent event) {
 
             //reset tour
-            if (event.getSource() == controls[0]) {
+            if (event.getSource() == reset) {
                 getFires();
                 for (int i = 0; i < tiles.length; i++) {
                     for (int j = 0; j < tiles.length; j++) {
@@ -182,17 +175,18 @@ public class forestFire extends JPanel {
                 goodNum = 0;
 
                 //disables end
-                controls[1].setEnabled(false);
+                next_game.setEnabled(false);
 
             } 
 
             //next game
-            else if (event.getSource() == controls[1]) {
+            else if (event.getSource() == next_game) {
                 //use this button to output the good and bad numbers
                 for (int i = 0; i < tiles.length; i++) {
                     for (int j = 0; j < tiles.length; j++) {
 
-                        if (tiles[i][j].getIcon().equals(fire)) {
+                        if (tiles[i][j].getIcon() == fire) {
+                            System.out.println("asdasda");
                             badNum++;
                         }
 
@@ -207,7 +201,7 @@ public class forestFire extends JPanel {
 
                     String victory = "You Win! \n" + "Steps Taken:" + goodNum;
                     JOptionPane.showMessageDialog(null, victory);
-                    controls[1].setEnabled(true);
+                    next_game.setEnabled(true);
 
                 } 
                 
