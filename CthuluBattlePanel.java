@@ -88,7 +88,7 @@ public class CthuluBattlePanel extends JPanel
         int cthulu_health = model.get_cthulu_health();
         player_health_label.setText("Player Health: " + player_health);
         cthulu_health_label.setText("Cthulu's Health: " + cthulu_health);
-        if (cthulu_health < 0)
+        if (cthulu_health <= 0)
         {
             cthulu_health_label.setText("Cthulu's Health: DEAD");
             cthulu_battle_next_game.setEnabled(true);
@@ -96,7 +96,7 @@ public class CthuluBattlePanel extends JPanel
             kick.setEnabled(false);
             cower.setEnabled(false);
         }
-        if (player_health < 0)
+        if (player_health <= 0)
         {
             player_health_label.setText("Player Health: DEAD");
             cthulu_battle_next_game.setEnabled(true);

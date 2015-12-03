@@ -34,13 +34,13 @@ public class GuessingGameModel
         }
         else if (guess < secretNum)
         {
-            good_big = good_big + Math.abs(secretNum - guess);
+            good_big = good_big + Math.abs(secretNum + guess);
             bad_big = bad_big + Math.abs(secretNum - guess);
             return "Your guess is too low! " + count + " guesses remain";
         }
         else if (guess > secretNum)
         {
-            good_big = good_big + Math.abs(secretNum - guess);
+            good_big = good_big + Math.abs(secretNum + guess);
             bad_big = bad_big + Math.abs(secretNum - guess);
             return "Your guess is too high! " + count + " guesses remain";
         }

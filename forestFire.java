@@ -72,6 +72,7 @@ public class forestFire extends JPanel {
 
         //add player controls
         reset = new JButton("Reset");
+        reset.addActionListener(listener);
         next_game = new JButton("Next Game");
         buttons.add(reset);
         buttons.add(next_game);
@@ -179,21 +180,6 @@ public class forestFire extends JPanel {
 
             } 
 
-            //next game
-            else if (event.getSource() == next_game) {
-                //use this button to output the good and bad numbers
-                for (int i = 0; i < tiles.length; i++) {
-                    for (int j = 0; j < tiles.length; j++) {
-
-                        if (tiles[i][j].getIcon() == fire) {
-                            System.out.println("asdasda");
-                            badNum++;
-                        }
-
-                    }
-                }
-
-            } 
             //handles clicks
             else {
 
@@ -201,8 +187,16 @@ public class forestFire extends JPanel {
 
                     String victory = "You Win! \n" + "Steps Taken:" + goodNum;
                     JOptionPane.showMessageDialog(null, victory);
-                    next_game.setEnabled(true);
+                    for (int i = 0; i < tiles.length; i++) {
+                        for (int j = 0; j < tiles.length; j++) {
 
+                            if (tiles[i][j].getIcon() == fire) {
+                                badNum++;
+                            }
+
+                        }
+                    }
+                    next_game.setEnabled(true);
                 } 
                 
                 else {
